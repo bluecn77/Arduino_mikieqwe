@@ -1,0 +1,19 @@
+#define PIR 10
+#define FAN 8
+
+
+void setup() {
+  pinMode(FAN, OUTPUT);
+  pinMode(PIR, INPUT);
+
+  Serial.begin (9600);
+  
+}
+void loop() {
+  if (digitalRead(PIR)==HIGH)
+      digitalWrite(FAN,LOW);
+  else
+      digitalWrite(FAN,HIGH);
+     
+  delay(200);
+}

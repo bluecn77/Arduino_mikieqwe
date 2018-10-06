@@ -1,0 +1,45 @@
+const int AIA = 3;
+const int AIB = 4;
+const int BIA = 5;
+const int BIB = 6;
+
+byte speed = 255;
+
+void setup() {
+  pinMode(AIA, OUTPUT);
+  pinMode(AIB, OUTPUT);
+  pinMode(BIA, OUTPUT);
+  pinMode(BIB, OUTPUT);
+  }
+
+void loop() {
+  forward();
+  delay(2000);
+  backward();
+  delay(2000);
+}
+
+void backward() {
+  analogWrite(AIA,0);
+  analogWrite(AIB,speed);
+  analogWrite(BIA,0);
+  analogWrite(BIB,speed);
+}
+void forward() {
+  analogWrite(AIA,speed); //왼쪽A바퀴앞으로 돌기
+  analogWrite(AIB,0);     //왼쪽A바퀴뒤로 돌기
+  analogWrite(BIA,speed); //오른쪽B바퀴앞으로 돌기
+  analogWrite(BIB,0);     //오른쪽B바퀴뒤로 돌기
+}
+void right() {
+  analogWrite(AIA,speed);
+  analogWrite(AIB,0);
+  analogWrite(BIA,0);
+  analogWrite(BIB,0);
+}
+void left() {
+  analogWrite(AIA,0);
+  analogWrite(AIB,0);
+  analogWrite(BIA,speed);
+  analogWrite(BIB,0);
+}
